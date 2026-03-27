@@ -2,7 +2,7 @@
 
 > Secure, production-ready utility to sanitize, normalize, validate, and transform CSV import data for SaaS applications.
 
-[![CI](https://github.com/YOUR_USERNAME/csv-import-sanitizer/actions/workflows/ci.yml/badge.svg)](https://github.com/YOUR_USERNAME/csv-import-sanitizer/actions/workflows/ci.yml)
+[![CI](https://github.com/Dev-SalamSheikh/csv-import-sanitizer/actions/workflows/ci.yml/badge.svg)](https://github.com/YOUR_USERNAME/csv-import-sanitizer/actions/workflows/ci.yml)
 [![npm](https://img.shields.io/npm/v/csv-import-sanitizer)](https://www.npmjs.com/package/csv-import-sanitizer)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
