@@ -27,10 +27,7 @@ describe('detectDuplicates', () => {
   });
 
   it('should be case-insensitive', () => {
-    const rows = [
-      { email: 'Test@Example.com' },
-      { email: 'test@example.com' },
-    ];
+    const rows = [{ email: 'Test@Example.com' }, { email: 'test@example.com' }];
     const result = detectDuplicates(rows, ['email']);
     expect(result.duplicateRows).toHaveLength(1);
   });

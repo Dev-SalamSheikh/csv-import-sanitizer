@@ -19,11 +19,7 @@ import type {
 import { normalizeHeaders } from './normalizeHeaders';
 import { validateRows } from './validateRows';
 import { detectDuplicates } from './detectDuplicates';
-import {
-  escapeFormulaInjection,
-  stripControlCharacters,
-  checkSizeLimits,
-} from './utils/security';
+import { escapeFormulaInjection, stripControlCharacters, checkSizeLimits } from './utils/security';
 
 /** Default value sanitization options. */
 const DEFAULT_VALUE_OPTIONS: Required<SanitizeValueOptions> = {
@@ -72,10 +68,7 @@ const DEFAULT_VALUE_OPTIONS: Required<SanitizeValueOptions> = {
  * console.log(result.errors);      // [{ row: 2, column: 'email', code: 'REQUIRED_FIELD', ... }]
  * ```
  */
-export function sanitizeCsv(
-  input: string,
-  options: SanitizeCsvOptions = {},
-): SanitizeResult {
+export function sanitizeCsv(input: string, options: SanitizeCsvOptions = {}): SanitizeResult {
   const errors: RowError[] = [];
   const valueOpts = { ...DEFAULT_VALUE_OPTIONS, ...options.values };
 
@@ -106,12 +99,7 @@ export function sanitizeCsv(
 
   // ---------- Step 2: Size limit checks ----------
   if (options.limits) {
-    const limitErrors = checkSizeLimits(
-      input,
-      dataRows.length,
-      rawHeaders.length,
-      options.limits,
-    );
+    const limitErrors = checkSizeLimits(input, dataRows.length, rawHeaders.length, options.limits);
     if (limitErrors.length > 0) {
       for (const msg of limitErrors) {
         errors.push({ row: 0, code: 'SIZE_LIMIT_EXCEEDED', message: msg });
@@ -229,10 +217,7 @@ export function sanitizeCsv(
  * Sanitize a single cell value.
  * @internal
  */
-function sanitizeCellValue(
-  value: string,
-  options: Required<SanitizeValueOptions>,
-): string | null {
+function sanitizeCellValue(value: string, options: Required<SanitizeValueOptions>): string | null {
   // Trim whitespace
   let sanitized = value.trim();
 

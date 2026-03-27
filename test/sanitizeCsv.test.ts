@@ -68,7 +68,7 @@ describe('sanitizeCsv', () => {
     it('should escape formula injection by default', () => {
       const csv = 'Name,Formula\nAlice,=CMD("calc")';
       const result = sanitizeCsv(csv);
-      expect(result.validRows[0]!.formula).toBe("'=CMD(\"calc\")");
+      expect(result.validRows[0]!.formula).toBe('\'=CMD("calc")');
     });
 
     it('should not escape formulas when disabled', () => {
@@ -149,7 +149,10 @@ describe('sanitizeCsv', () => {
     });
 
     it('should reject input exceeding column limit', () => {
-      const headers = Array(20).fill('col').map((c, i) => `${c}${i}`).join(',');
+      const headers = Array(20)
+        .fill('col')
+        .map((c, i) => `${c}${i}`)
+        .join(',');
       const csv = `${headers}\n${'v,'.repeat(19)}v`;
       const result = sanitizeCsv(csv, { limits: { maxColumns: 5 } });
       expect(result.errors.some((e) => e.code === 'SIZE_LIMIT_EXCEEDED')).toBe(true);

@@ -100,9 +100,7 @@ export function checkSizeLimits(
   }
 
   if (limits.maxColumns !== undefined && columnCount > limits.maxColumns) {
-    errors.push(
-      `Column count (${columnCount}) exceeds maximum allowed (${limits.maxColumns}).`,
-    );
+    errors.push(`Column count (${columnCount}) exceeds maximum allowed (${limits.maxColumns}).`);
   }
 
   return errors;

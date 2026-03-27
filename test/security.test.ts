@@ -8,7 +8,7 @@ import {
 
 describe('escapeFormulaInjection', () => {
   it('should escape values starting with =', () => {
-    expect(escapeFormulaInjection('=CMD("calc")')).toBe("'=CMD(\"calc\")");
+    expect(escapeFormulaInjection('=CMD("calc")')).toBe('\'=CMD("calc")');
   });
 
   it('should escape values starting with +', () => {

@@ -35,10 +35,7 @@ import type { SanitizedRecord, DuplicateResult } from './types';
  * // result.duplicateRows.length → 1
  * ```
  */
-export function detectDuplicates(
-  rows: SanitizedRecord[],
-  keyFields: string[],
-): DuplicateResult {
+export function detectDuplicates(rows: SanitizedRecord[], keyFields: string[]): DuplicateResult {
   if (keyFields.length === 0) {
     return {
       uniqueRows: [...rows],
